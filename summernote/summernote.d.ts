@@ -41,7 +41,15 @@ interface SummernoteOptions {
     width?: number;
 }
 
-//type toolbarDef = [string, string[]][];
+// callbacks ?
+// https://www.typescriptlang.org/docs/handbook/functions.html#writing-the-function-type
+//type OptionsDef = {
+//    callbacks?: {
+//        [event: string]: () => void
+//    }
+//};
+
+
 type toolbarStyleGroupOptions = 'style' | 'bold' | 'italic' | 'underline' | 'clear';
 type toolbarFontGroupOptions = 'strikethrough' | 'superscript' | 'subscript';
 type toolbarFontsizeGroupOptions = 'fontsize';
@@ -52,6 +60,7 @@ type toolbarTableGroupOptions = 'table';
 type toolbarInsertGroupOptions = 'link' | 'picture' | 'hr';
 type toolbarViewGroupOptions = 'fullscreen' | 'codeview';
 type toolbarHelpGroupOptions = 'help';
+//type toolbarDef = [string, string[]][];
 type toolbarDef = [
     ['style', toolbarStyleGroupOptions[]]
     | ['font', toolbarFontGroupOptions[]]
@@ -64,6 +73,8 @@ type toolbarDef = [
     | ['view', toolbarViewGroupOptions[]]
     | ['help', toolbarHelpGroupOptions[]]
 ];
+
+
 
 type colorsDef = [string[]][];
 type styleTagsOptions = 'p' | 'blockquote' | 'pre' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -106,16 +117,38 @@ interface CodemirrorOptions {
     theme?: string;
 }
 
+type popoverImageOptionsImagesize = 'imageSize100' | 'imageSize50' | 'imageSize25';
+type popoverImageOptionsFloat = 'floatLeft' | 'floatRight' | 'floatNone';
+type popoverImageOptionsRemove = 'removeMedia';
+type popoverImageDef = [
+    ['imagesize', popoverImageOptionsImagesize[]],
+    ['float', popoverImageOptionsFloat[]],
+    ['remove', popoverImageOptionsRemove[]]
+];
+
+type popoverLinkLinkOptions = 'linkDialogShow' | 'unlink';
+type popoverLinkDef = [
+    ['link', popoverLinkLinkOptions[]]
+];
+
+type popoverAirOptionsColor = 'color';
+type popoverAirOptionsFont = 'bold' | 'underline' | 'clear';
+type popoverAirOptionsPara = 'ul' | 'paragraph';
+type popoverAirOptionsTable = 'table';
+type popoverAirOptionsInsert = 'link' | 'picture';
+type popoverAirDef = [
+    ['color', popoverAirOptionsColor],
+    ['font', popoverAirOptionsFont],
+    ['para', popoverAirOptionsPara],
+    ['table', popoverAirOptionsTable],
+    ['insert', popoverAirOptionsInsert]
+];
+
 interface PopoverOptions {
-    image?: any; // todo
-    link?: any; // todo
-    air?: any; // todo
+    image?: popoverImageDef;
+    link?: popoverLinkDef;
+    air?: popoverAirDef;
 }
-
-interface ToolbarOptions {
-    options?: any; // todo
-}
-
 
 interface ModuleOptions {
     options?: any; // todo
@@ -206,6 +239,8 @@ interface JQuery {
     // editor.currentStyle ??
     // editor.getLinkInfo ??
     // editor.getSelectedText ??
+
+    // todo: implement keyof in future release of TypeScript: http://stackoverflow.com/a/40843364/187650
 }
 
 declare module "summernote" {
