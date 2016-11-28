@@ -10,4 +10,4 @@ Summernote api is available via: http://summernote.org/deep-dive/#api
 Needs more help!
 
 # Note
-I'm new to github and TypeScript so be patient, any help is welcome!
+Any help is welcome!
