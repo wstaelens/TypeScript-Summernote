@@ -243,5 +243,16 @@ interface JQuery {
     // todo: implement keyof in future release of TypeScript: http://stackoverflow.com/a/40843364/187650
 }
 
+/**
+ * @description Accessing to summernote properties directly
+ * @example
+ * `
+ * let ui = $.summernote.ui;
+ * `
+ */
+interface JQueryStatic {
+    summernote:any;
+}
+
 declare module "summernote" {
 }
