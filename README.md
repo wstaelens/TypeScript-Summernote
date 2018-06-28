@@ -7,6 +7,8 @@ It still needs work but it allowed me already to build my TypeScript .ts files.
 
 Summernote api is available via: http://summernote.org/deep-dive/#api
 
+update: A npm package was created: https://www.npmjs.com/package/summernote-typescript 
+
 Needs more help!
 
 # Note
